@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Todolist} from "./Todolist";
+import {List} from "./Components/Todolist/List/list";
 import {v1} from 'uuid';
+import {Footer} from "./Components/Todolist/Footer/footer";
+import {Header} from "./Components/Todolist/Header/header";
 
 export type FilterValuesType = "all" | "active" | "completed";
 
@@ -43,11 +45,12 @@ function App() {
 
     return (
         <div className="App">
-            <Todolist title="What to learn"
-                      tasks={tasksForTodolist}
-                      removeTask={removeTask}
-                      changeFilter={changeFilter}
-                      addTask={addTask}/>
+            <Header title="What to learn"
+                    tasks={tasksForTodolist}
+                    addTask={addTask}/>
+            <List tasks={tasksForTodolist}
+                  removeTask={removeTask}/>
+            <Footer changeFilter={changeFilter}/>
         </div>
     );
 }
