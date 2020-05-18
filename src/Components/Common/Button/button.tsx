@@ -1,8 +1,12 @@
 import React from "react";
+import s from "./button.module.css"
 
-const Button = () => {
+const Button = (props: any) => {
+
     return (
-        <input type="button"/>
+        <input className={s.button}
+               type="button"
+        value={props.value}/>
     )
 }
 

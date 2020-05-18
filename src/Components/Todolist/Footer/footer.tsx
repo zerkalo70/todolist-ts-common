@@ -1,9 +1,11 @@
 import React from "react";
 import {FilterValuesType} from "../../../App";
+import Button from "../../Common/Button/button";
 
 
 type PropsType = {
     changeFilter: (value: FilterValuesType) => void
+
 }
 
 
@@ -18,6 +20,8 @@ export function Footer(props: PropsType) {
             <button onClick={onAllClickHandler}>All</button>
             <button onClick={onActiveClickHandler}>Active</button>
             <button onClick={onCompletedClickHandler}>Completed</button>
+            <Button value=" Expromt"
+                    onClick={onAllClickHandler}/>
         </div>
     )
 }
