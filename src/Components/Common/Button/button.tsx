@@ -1,12 +1,25 @@
 import React from "react";
-import s from "./button.module.css"
+import s from "./button.module.css";
+import cn from "classnames";
 
-const Button = (props: any) => {
+type PropsType = {
+    text: string
+    type?: "default"|"danger"|"success"|"info"
+}
+
+const Button = (props: PropsType) => {
+
+    const css = cn({
+        [s.button]: true,
+        [s.danger]: props.type === "danger",
+        [s.success]: props.type === "success",
+        [s.info]: props.type === "info",
+    })
 
     return (
-        <input className={s.button}
-               type="button"
-        value={props.value}/>
+        <input type="button"
+            className={css}
+        value={props.text}/>
     )
 }
 

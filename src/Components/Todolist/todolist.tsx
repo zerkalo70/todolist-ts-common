@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-// import './App.css';
+import s from './todolist.module.css'
 import {List} from "./List/list";
 import {v1} from 'uuid';
 import {Footer} from "./Footer/footer";
@@ -44,7 +44,7 @@ function Todolist() {
 
 
     return (
-        <div className="App">
+        <div className={s.todolist}>
             <Header title="What to learn"
                     tasks={tasksForTodolist}
                     addTask={addTask}/>

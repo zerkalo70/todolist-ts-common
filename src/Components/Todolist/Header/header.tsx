@@ -1,4 +1,6 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from "react";
+import Button from "../../Common/Button/button";
+import s from "./header.module.css";
 
 type TasksType = {
     id: string
@@ -34,13 +36,14 @@ export function Header(props: PropsType) {
 
 
     return (
-        <div>
+        <div className={s.header}>
             <h3>{props.title}</h3>
             <div>
                 <input value={newTaskTitle}
                        onChange={onNewTitleChangeHandler}
                        onKeyPress={onKeyPressHandler}/>
-                <button onClick={addTask}>+</button>
+                {/*<button onClick={addTask}>+</button>*/}
+                <Button text="Add" type="info"/>
             </div>
         </div>
     )

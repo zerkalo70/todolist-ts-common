@@ -1,4 +1,6 @@
 import React from "react";
+import Button from "../../Common/Button/button";
+import s from "./list.module.css";
 
 type TasksType = {
     id: string
@@ -14,7 +16,7 @@ type PropsType = {
 export function List(props: PropsType) {
 
     return (
-        <div>
+        <div className={s.list}>
             <ul>
                 {
                     props.tasks.map(t => {
@@ -27,7 +29,8 @@ export function List(props: PropsType) {
                             <li key={t.id}>
                                 <input type="checkbox" checked={t.isDone}/>
                                 <span>{t.title}</span>
-                                <button onClick={onRemoveHandler}>x</button>
+                                {/*<button onClick={onRemoveHandler}>x</button>*/}
+                                <Button text="Delit" type="danger"/>
                             </li>)
                     })
                 }
