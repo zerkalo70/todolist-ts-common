@@ -18,7 +18,7 @@ type TasksStateType = {
 
 function App() {
 
-    function changeStatus(id: string, isDone: boolean, todoListId: string) {
+    function changeTaskStatus(id: string, isDone: boolean, todoListId: string) {
         let task = tasksObj[todoListId].find(t => t.id === id)
         if (task) {
             task.isDone = isDone;
@@ -26,9 +26,17 @@ function App() {
         }
     }
 
+    function changeTaskTitle(id: string, newTitle: string, todoListId: string) {
+        let task = tasksObj[todoListId].find(t => t.id === id)
+        if (task) {
+            task.title = newTitle;
+            setTasksObj({...tasksObj});
+        }
+    }
+
     function removeTask(id: string, todoListId: string) {
         let tasks = tasksObj[todoListId];
-        let filteredTasks = tasks.filter(t => t.id != id);
+        let filteredTasks = tasks.filter(t => t.id !== id);
         tasksObj[todoListId] = filteredTasks;
         setTasksObj({...tasksObj});
     }
@@ -76,6 +84,14 @@ function App() {
             {id: v1(), title: "Milk", isDone: true}]
     });
 
+    function changeTodoListTitle(id: string, newTitle: string) {
+const todoList = todoLists.find(tl => tl.id === id)
+        if (todoList) {
+            todoList.title = newTitle;
+            setTodoLists([...todoLists])
+        }
+    }
+
     function addTodoList(title: string) {
         let todoList: TodoListType = {
             id: v1(),
@@ -107,9 +123,11 @@ function App() {
                         tasks={tasksForTodolist}
                         removeTask={removeTask}
                         changeFilter={changeFilter}
-                        changeStatus={changeStatus}
+                        changeTaskStatus={changeTaskStatus}
+                        changeTaskTitle={changeTaskTitle}
                         addTask={addTask}
-                        removeTodoList={removeTodoList}/>
+                        removeTodoList={removeTodoList}
+                        changeTodoListTitle={changeTodoListTitle}/>
                 })
             }
         </div>
