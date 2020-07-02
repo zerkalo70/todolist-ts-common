@@ -20,7 +20,8 @@ export type TasksStateType = {
 
 function App() {
 
-    function changeTaskStatus(id: string, isDone: boolean, todoListId: string) {
+    function changeTaskStatus(id: string,
+                              isDone: boolean, todoListId: string) {
         let task = tasksObj[todoListId].find(t => t.id === id)
         if (task) {
             task.isDone = isDone;
@@ -28,7 +29,8 @@ function App() {
         }
     }
 
-    function changeTaskTitle(id: string, newTitle: string, todoListId: string) {
+    function changeTaskTitle(id: string,
+                             newTitle: string, todoListId: string) {
         let task = tasksObj[todoListId].find(t => t.id === id)
         if (task) {
             task.title = newTitle;
